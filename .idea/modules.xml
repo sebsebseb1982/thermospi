@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/thermospiNew.iml" filepath="$PROJECT_DIR$/thermospiNew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thermospi.iml" filepath="$PROJECT_DIR$/thermospi.iml" />
     </modules>
   </component>
 </project>
