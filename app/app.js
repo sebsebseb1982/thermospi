@@ -12,8 +12,19 @@ angular
   .module('thermospiApp', [
     'ngAnimate',
     'ngCookies',
-    'ngResource'
+    'ngResource',
+    'ui.router'
   ])
-  .config(function () {
-
+  .config(function ($stateProvider) {
+    $stateProvider.state(
+      'thermospi',
+      {
+        'url': '/',
+        'views': {
+          'content' : {
+            'templateUrl': 'heater/view.html'
+          }
+        }
+      }
+    );
   });
