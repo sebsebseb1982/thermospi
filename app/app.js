@@ -15,16 +15,22 @@ angular
     'ngResource',
     'ui.router'
   ])
-  .config(function ($stateProvider) {
-    $stateProvider.state(
-      'thermospi',
-      {
-        'url': '/',
-        'views': {
-          'content' : {
-            'templateUrl': 'heater/view.html'
+  .config(
+    (
+      $stateProvider,
+      $urlRouterProvider
+    ) => {
+      $urlRouterProvider.otherwise('/home');
+      $stateProvider.state(
+        'thermospi',
+        {
+          'url': '/home',
+          'views': {
+            'content' : {
+              'templateUrl': 'heater/view.html'
+            }
           }
         }
-      }
-    );
-  });
+      );
+    }
+  );
