@@ -13,21 +13,24 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ui.router'
+    'ui.router',
+    'heater',
+    'settings',
+    'settings.controllers'
   ])
   .config(
     (
       $stateProvider,
       $urlRouterProvider
     ) => {
-      $urlRouterProvider.otherwise('/home');
+      $urlRouterProvider.otherwise('/heater');
       $stateProvider.state(
         'thermospi',
         {
-          'url': '/home',
+          'url': '/',
           'views': {
             'content' : {
-              'templateUrl': 'heater/view.html'
+              'template': '<data-ui-view/>'
             }
           }
         }
