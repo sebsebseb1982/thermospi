@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('heater', [])
+  .module('heater', ['heater.services', 'heater.controllers'])
   .config(
     (
       $stateProvider
@@ -18,7 +18,8 @@ angular
         'thermospi.heater',
         {
           'url': 'heater',
-          'templateUrl': 'heater/view.html'
+          'templateUrl': 'heater/view.html',
+          'controller': 'HeaterController'
         }
       );
     }

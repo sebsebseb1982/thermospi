@@ -15,8 +15,7 @@ angular
     'ngResource',
     'ui.router',
     'heater',
-    'settings',
-    'settings.controllers'
+    'settings'
   ])
   .config(
     (

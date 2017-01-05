@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('settings', [])
+  .module('settings', ['settings.controllers'])
   .config(
     (
       $stateProvider
