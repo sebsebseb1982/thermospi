@@ -43,7 +43,7 @@ angular
           }
         };
 
-        TemperatureSeries.lastNHours().then(function (series) {
+        TemperatureSeries.lastNHours(24).then(function (series) {
           _.forEach(series, (aSerie) => {
             $scope.config.series.push(aSerie);
           });

@@ -39,9 +39,10 @@ angular
       'Sensors',
       '_',
       '$q',
-      (Temperatures, Sensors, _, $q) => {
+      'moment',
+      (Temperatures, Sensors, _, $q, moment) => {
         return {
-          lastNHours: () => {
+          lastNHours: (hours) => {
 
             return $q((resolve, reject) => {
 
@@ -49,6 +50,8 @@ angular
                 Temperatures.getAll().$promise,
                 Sensors.getAll().$promise
               ]).then(function (data) {
+
+                let nHoursAgo = moment().subtract(hours, 'hours');
 
                 let series = [];
 
@@ -58,9 +61,18 @@ angular
 
                     let aTemperatureSerie = {
                       'name': sensor.label,
-                      'data': _.map(_.filter(data[0], {probe: sensor.id}), function (record) {
-                        return [new Date(record.date.$date).getTime(), record.temperature];
-                      })
+                      'data': _.map(
+                                _.filter(
+                                  data[0],
+                                  (record) => {
+
+                                    return record.probe === sensor.id && moment(new Date(record.date.$date)).isAfter(nHoursAgo);
+                                  }
+                                ),
+                                (record) => {
+                                  return [new Date(record.date.$date).getTime(), record.temperature];
+                                }
+                              )
                     };
 
                     series.push(aTemperatureSerie);

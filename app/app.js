@@ -19,6 +19,7 @@ angular
     'settings',
     'lodash'
   ])
+  .constant("moment", moment)
   .config(
     (
       $stateProvider,
