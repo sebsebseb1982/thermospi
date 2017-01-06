@@ -10,13 +10,13 @@
  */
 angular
   .module('heater.directives', [])
-  .controller('temperatureChartController', ['$scope', 'Temperatures', function($scope, Temperatures) {
-    $scope.temperatures = Temperatures.getAll();
+  .controller('temperatureChartController', ['$scope', 'ChartConfig', function($scope, ChartConfig) {
+    $scope.config = ChartConfig.lastNHours();
   }])
   .directive('temperatureChart', function() {
     return {
       'controller': 'temperatureChartController as temperatureChart',
-      'template': '<highchart id="chart1"></highchart>'
+      'template': '<highchart id="chart1" config="config"></highchart>'
     };
   });
 

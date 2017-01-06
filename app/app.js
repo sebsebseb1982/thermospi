@@ -14,6 +14,7 @@ angular
     'ngCookies',
     'ngResource',
     'ui.router',
+    'highcharts-ng',
     'heater',
     'settings'
   ])
