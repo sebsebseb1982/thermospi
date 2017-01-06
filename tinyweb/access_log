@@ -3107,3 +3107,4 @@ activate.adobe.com - - [06/Jan/2017:20:52:41 +0100] "GET /app/heater/view.html H
 activate.adobe.com - - [06/Jan/2017:20:53:00 +0100] "GET /app/settings/view.html HTTP/1.1" 200 1678
 activate.adobe.com - - [06/Jan/2017:20:54:55 +0100] " " 400 -
 activate.adobe.com - - [06/Jan/2017:20:56:59 +0100] " " 400 -
+activate.adobe.com - - [06/Jan/2017:21:07:17 +0100] " " 400 -
