@@ -9,7 +9,14 @@
  * Main module of the application.
  */
 angular
-  .module('heater', ['heater.services', 'heater.controllers'])
+  .module(
+    'heater',
+    [
+      'heater.services',
+      'heater.controllers',
+      'heater.directives'
+    ]
+  )
   .config(
     (
       $stateProvider
