@@ -16,7 +16,8 @@ angular
     'ui.router',
     'highcharts-ng',
     'heater',
-    'settings'
+    'settings',
+    'lodash'
   ])
   .config(
     (
