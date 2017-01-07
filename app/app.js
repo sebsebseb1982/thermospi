@@ -16,6 +16,7 @@ angular
     'ui.router',
     'highcharts-ng',
     'heater',
+    'outlets',
     'settings',
     'lodash'
   ])
@@ -23,9 +24,11 @@ angular
   .config(
     (
       $stateProvider,
-      $urlRouterProvider
+      $urlRouterProvider,
+      $sceProvider
     ) => {
       $urlRouterProvider.otherwise('/heater');
+
       $stateProvider.state(
         'thermospi',
         {
@@ -37,5 +40,7 @@ angular
           }
         }
       );
+
+      //$sceProvider.enabled(false);
     }
   );

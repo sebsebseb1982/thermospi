@@ -19,7 +19,7 @@
             <form role="form">
               <div class="form-group">
                 <label>Clé API</label>
-                <input class="form-control" data-ng-model="mLab" data-ng-change="setCookie('mLab', mLab)">
+                <input type="password" class="form-control" data-ng-model="mLab" data-ng-change="setCookie('mLab', mLab)">
                 <p class="help-block">La <a href="https://mlab.com/user?username=thermospi">clé d'API</a> pour accéder à toutes les données du chauffage.</p>
               </div>
             </form>
@@ -45,6 +45,10 @@
               <div class="form-group">
                 <label>Port</label>
                 <input class="form-control" data-ng-model="port" data-ng-change="setCookie('port', port)">
+              </div>
+              <div class="form-group">
+                <label>Clé API</label>
+                <input type="password" class="form-control" data-ng-model="apikey" data-ng-change="setCookie('apikey', apikey)">
               </div>
             </form>
           </div>
