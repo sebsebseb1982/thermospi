@@ -41,6 +41,6 @@ angular
         }
       );
 
-      //$sceProvider.enabled(false);
+      $sceProvider.enabled(false);
     }
   );
