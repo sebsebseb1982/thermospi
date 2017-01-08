@@ -134,7 +134,9 @@ angular
 
                 setPoints.push({
                   'value': setPoints[setPoints.length - 1].value,
-                  'date': new Date()
+                  'date': {
+                    '$date': new Date().getTime()
+                  }
                 });
 
                 resolve({

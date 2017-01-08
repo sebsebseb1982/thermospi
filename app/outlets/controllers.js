@@ -20,12 +20,9 @@ angular
         $scope.outlets = Outlets.getAll();
 
         $scope.sendCommand = (outlet, state) => {
-          console.log(outlet, state);
           OutletsControl.setState(
-            {
-              code: outlet.code,
-              state: state ? 'on' : 'off'
-            }
+            {code: outlet.code},
+            {state: state}
           );
         };
       }

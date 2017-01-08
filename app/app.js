@@ -25,7 +25,8 @@ angular
     (
       $stateProvider,
       $urlRouterProvider,
-      $sceProvider
+      $sceProvider,
+      $httpProvider
     ) => {
       $urlRouterProvider.otherwise('/heater');
 
@@ -40,6 +41,8 @@ angular
           }
         }
       );
+
+      $httpProvider.defaults.headers.common.Authorization = 'Bearer 12345abcde';
 
       //$sceProvider.enabled(false);
     }
