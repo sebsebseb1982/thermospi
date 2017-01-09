@@ -23,7 +23,7 @@ angular
       '$resource',
       '$cookies',
       function ($resource, $cookies) {
-        return $resource('http://' + $cookies.get('host') + ':' + $cookies.get('port') + '/api/outlet/:code', {code: '@code'}, {
+        return $resource('https://' + $cookies.get('host') + ':' + $cookies.get('port') + '/api/outlet/:code', {code: '@code'}, {
           setState: {
             method: 'POST',
             headers: {
