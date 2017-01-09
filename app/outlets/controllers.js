@@ -16,7 +16,8 @@ angular
       '$scope',
       'Outlets',
       'OutletsControl',
-      function ($scope, Outlets, OutletsControl) {
+      '$cookies',
+      function ($scope, Outlets, OutletsControl, $cookies) {
         $scope.outlets = Outlets.getAll();
 
         $scope.sendCommand = (outlet, state) => {
@@ -25,6 +26,8 @@ angular
             {state: state}
           );
         };
+
+        $scope.buttonsClass = $cookies.get('apikey') ? '' : 'disabled';
       }
     ]
   );
