@@ -18,7 +18,8 @@ angular
     'heater',
     'outlets',
     'settings',
-    'lodash'
+    'lodash',
+    'rzModule'
   ])
   .constant("moment", moment)
   .config(

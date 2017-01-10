@@ -38,10 +38,24 @@ angular
       '$resource',
       '$cookies',
       function ($resource, $cookies) {
-        return $resource('/api/1/databases/thermospi/collections/realSetPoints?s={date:1}&apiKey=' + $cookies.get('mLab'), {}, {
-          getAll: {
+        return $resource('/api/1/databases/thermospi/collections/:collection?apiKey=' + $cookies.get('mLab'), {}, {
+          getAllRealSetPoints: {
             method: 'GET',
-            isArray: true
+            isArray: true,
+            params: {
+              collection: 'realSetPoints',
+              s: '{date:1}'
+            }
+          },
+          getLastSetPoint: {
+            method: 'GET',
+            isArray: false,
+            params: {
+              collection: 'setPoints',
+              s: '{date:1}',
+              l: 1,
+              fo: true
+            }
           }
         });
       }
@@ -129,7 +143,7 @@ angular
 
             return $q((resolve, reject) => {
 
-              SetPoints.getAll().$promise.then(function (setPoints) {
+              SetPoints.getAllRealSetPoints().$promise.then(function (setPoints) {
                 let nHoursAgo = moment().subtract(hours, 'hours');
 
                 setPoints.push({
