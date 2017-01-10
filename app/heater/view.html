@@ -14,7 +14,10 @@
         <i class="fa fa-sliders fa-fw"></i> Controle
       </div>
       <!-- /.panel-heading -->
-      <div class="panel-body">
+      <div class="panel-body" data-ng-hide="lastSetPoint.$resolved">
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+      </div>
+      <div class="panel-body" data-ng-if="lastSetPoint.$resolved">
         <rzslider
           rz-slider-model="slider.value"
           rz-slider-options="slider.options"

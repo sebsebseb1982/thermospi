@@ -16,11 +16,13 @@ angular
       alert(modelValue);
     };
 
-    SetPoints.getLastSetPoint().$promise.then((lastSetPoint) => {
+    $scope.lastSetPoint = SetPoints.getLastSetPoint();
+
+    $scope.lastSetPoint.$promise.then((lastSetPoint) => {
       $scope.slider = {
         value: lastSetPoint.value,
         options: {
-          floor: 16,
+          floor: 15,
           ceil: 25,
           onEnd: updateSetPoint
         }
