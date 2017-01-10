@@ -11,13 +11,12 @@ gulp.task(
   () => {
     connect.server({
       livereload:true,
+      port:8889,
       middleware: (connect, opt) => {
         return [
-          proxy('/mlab', {
-            target: 'https://api.mlab.com',
+          proxy('https://mlab.com/api', {
             changeOrigin:true,
-            logLevel: 'debug',
-            protocolRewrite: 'https'
+            logLevel: 'debug'
           })
         ]
       }
