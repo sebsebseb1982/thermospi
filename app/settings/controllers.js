@@ -17,8 +17,6 @@ angular
       '$cookies',
       function ($scope, $cookies) {
         $scope.mLab = $cookies.get('mLab');
-        $scope.host = $cookies.get('host');
-        $scope.port = $cookies.get('port');
         $scope.apikey = $cookies.get('apikey');
 
         $scope.setCookie = (key, value) => {

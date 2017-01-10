@@ -8,7 +8,7 @@ angular
       '$resource',
       '$cookies',
       function ($resource, $cookies) {
-        return $resource('https://api.mlab.com/api/1/databases/thermospi/collections/temperatures?s={date:-1}&apiKey=' + $cookies.get('mLab'), {}, {
+        return $resource('/api/1/databases/thermospi/collections/temperatures?s={date:-1}&apiKey=' + $cookies.get('mLab'), {}, {
           getAll: {
             method: 'GET',
             isArray: true
@@ -23,7 +23,7 @@ angular
       '$resource',
       '$cookies',
       function ($resource, $cookies) {
-        return $resource('https://api.mlab.com/api/1/databases/thermospi/collections/sensors?apiKey=' + $cookies.get('mLab'), {}, {
+        return $resource('/api/1/databases/thermospi/collections/sensors?apiKey=' + $cookies.get('mLab'), {}, {
           getAll: {
             method: 'GET',
             isArray: true
