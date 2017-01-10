@@ -52,9 +52,11 @@ angular
             isArray: false,
             params: {
               collection: 'setPoints',
-              s: '{date:1}',
-              l: 1,
-              fo: true
+              s: '{"date":-1}',
+              l:1
+            },
+            transformResponse: (data, headers) => {
+             return JSON.parse(data)[0];
             }
           }
         });
