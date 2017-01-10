@@ -8,7 +8,7 @@ angular
       '$resource',
       '$cookies',
       function ($resource, $cookies) {
-        return $resource('https://api.mlab.com/api/1/databases/thermospi/collections/outlets?apiKey=' + $cookies.get('mLab'), {}, {
+        return $resource('/mlab/api/1/databases/thermospi/collections/outlets?apiKey=' + $cookies.get('mLab'), {}, {
           getAll: {
             method: 'GET',
             isArray: true
