@@ -17,6 +17,10 @@ gulp.task(
           proxy('https://mlab.com/api', {
             changeOrigin:true,
             logLevel: 'debug'
+          }),
+          proxy('http://localhost:9051/home', {
+            changeOrigin:true,
+            logLevel: 'debug'
           })
         ]
       }
