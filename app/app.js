@@ -17,6 +17,7 @@ angular
     'highcharts-ng',
     'heater',
     'outlets',
+    'lamps',
     'settings',
     'lodash',
     'rzModule'
