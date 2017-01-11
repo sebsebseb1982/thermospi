@@ -10,12 +10,15 @@
  */
 angular
   .module('heater.controllers', [])
-  .controller('HeaterController', ['$scope', 'SetPoints', function($scope, SetPoints) {
+  .controller('HeaterController', ['$scope', 'SetPoints', 'HeaterControl', function($scope, SetPoints, HeaterControl) {
 
     let ratio = 10;
 
     let updateSetPoint = (sliderId, modelValue, highValue, pointerType) => {
-      alert(modelValue / ratio);
+      HeaterControl.addSetPoint({value:modelValue / ratio});
+      setInterval(() => {
+        // TODO lancer evt de MAJ
+      }, 15 * 1000 /* ms */);
     };
 
     $scope.lastSetPoint = SetPoints.getLastSetPoint();

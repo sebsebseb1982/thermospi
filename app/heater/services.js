@@ -79,6 +79,23 @@ angular
     ]
   )
   .factory(
+    'HeaterControl',
+    [
+      '$resource',
+      '$cookies',
+      function ($resource, $cookies) {
+        return $resource('/home/thermostat/setpoint', {}, {
+          addSetPoint: {
+            method: 'POST',
+            headers: {
+              'token': $cookies.get('apikey')
+            }
+          }
+        });
+      }
+    ]
+  )
+  .factory(
     'TemperaturesSeries',
     [
       'Temperatures',
