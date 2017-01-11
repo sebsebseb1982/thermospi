@@ -15,8 +15,24 @@ angular
     [
       '$scope',
       'Lamps',
-      function ($scope, Lamps) {
-        $scope.lamps = Lamps.getAll();
+      'LampsControl',
+      'RGBConverter',
+      '_',
+      function ($scope, Lamps, LampsControl, RGBConverter, _) {
+
+        $scope.updateRGB = (lamp) => {
+          lamp.rgb = RGBConverter.hexToRGB(lamp.hex);
+        };
+
+        Lamps.getAll().$promise.then((lamps) => {
+          $scope.lamps = lamps;
+          _.forEach($scope.lamps, (lamp) => {
+            LampsControl.readState({id: lamp.id}).$promise.then((state) => {
+              lamp.state = state;
+              lamp.hex = RGBConverter.rgbToHex(lamp.state.state.rgb);
+            });
+          });
+        });
       }
     ]
   );

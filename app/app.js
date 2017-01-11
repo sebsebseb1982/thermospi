@@ -20,7 +20,8 @@ angular
     'lamps',
     'settings',
     'lodash',
-    'rzModule'
+    'rzModule',
+    'rgb-converter'
   ])
   .constant("moment", moment)
   .config(

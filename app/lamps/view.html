@@ -6,16 +6,44 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-3" ng-repeat="lamp in lamps">
+  <div class="col-lg-2" ng-repeat="lamp in lamps">
     <div class="panel panel-default">
       <div class="panel-heading">
         <i class="fa fa-lightbulb-o fa-fw"></i> {{lamp.label}} (ID : {{lamp.id}})
       </div>
 
       <div class="panel-body">
-        <input type="color">
+        <input
+          type="color"
+          data-ng-model="lamp.hex"
+          data-ng-if="lamp.rgb"
+          data-ng-change="updateRGB(lamp)"
+        />
+        <hr/>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-ng-class="{false:'btn-outline', true:''}[lamp.state.state.on]"
+          data-ng-click="sendCommand(outlet, true)"
+        >
+          ON
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-ng-class="{true:'btn-outline', false:''}[lamp.state.state.on]"
+          data-ng-click="sendCommand(outlet, false)"
+        >
+          OFF
+        </button>
+
       </div>
     </div>
   </div>
 </div>
 
+<div class="row">
+  <div class="col-lg-3">
+    <span>Modifier <a href="https://mlab.com/databases/thermospi/collections/lamps">la liste</a> des lampes.</span>
+  </div>
+</div>

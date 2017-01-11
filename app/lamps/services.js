@@ -16,4 +16,21 @@ angular
         });
       }
     ]
+  )
+  .factory(
+    'LampsControl',
+    [
+      '$resource',
+      '$cookies',
+      function ($resource, $cookies) {
+        return $resource('/home/lamps/:id/state', {id: '@id'}, {
+          readState: {
+            method: 'GET',
+            headers: {
+              'token': $cookies.get('apikey')
+            }
+          }
+        });
+      }
+    ]
   );

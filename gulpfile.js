@@ -18,7 +18,7 @@ gulp.task(
             changeOrigin:true,
             logLevel: 'debug'
           }),
-          proxy('http://localhost:9051/home', {
+          proxy('http://192.168.1.52:9051/home', {
             changeOrigin:true,
             logLevel: 'debug'
           })
