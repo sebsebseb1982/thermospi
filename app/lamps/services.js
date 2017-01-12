@@ -23,7 +23,7 @@ angular
       '$resource',
       '$cookies',
       function ($resource, $cookies) {
-        return $resource('/home/lamps/:id/state', {id: '@id'}, {
+        return $resource('/home/lamps/:code/state', {code: '@code'}, {
           readState: {
             method: 'GET',
             headers: {

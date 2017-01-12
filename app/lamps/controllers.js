@@ -27,7 +27,7 @@ angular
         Lamps.getAll().$promise.then((lamps) => {
           $scope.lamps = lamps;
           _.forEach($scope.lamps, (lamp) => {
-            LampsControl.readState({id: lamp.id}).$promise.then((state) => {
+            LampsControl.readState({code: lamp.code}).$promise.then((state) => {
               lamp.state = state;
               lamp.hex = RGBConverter.rgbToHex(lamp.state.state.rgb);
             });
