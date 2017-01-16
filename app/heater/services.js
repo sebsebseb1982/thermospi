@@ -8,11 +8,36 @@ angular
       '$resource',
       '$cookies',
       function ($resource, $cookies) {
-        return $resource('/api/1/databases/thermospi/collections/temperatures?s={date:-1}&apiKey=' + $cookies.get('mLab'), {}, {
+        return $resource('/api/1/databases/thermospi/collections/temperatures?apiKey=' + $cookies.get('mLab'), {}, {
           getAll: {
             method: 'GET',
-            isArray: true
+            isArray: true,
+            params: {
+              s: '{"date":-1}'
+            },
           }
+        });
+      }
+    ]
+  )
+  .factory(
+    'Temperatures2',
+    [
+      '$resource',
+      '$cookies',
+      function ($resource, $cookies) {
+        return $resource('/api/1/databases/thermospi/collections/temperatures?q={"probe"::sensor}&apiKey=' + $cookies.get('mLab'), {sensor:'@sensor'}, {
+          getCurrentTemperatureBySensor: {
+            method: 'GET',
+            isArray: false,
+            params: {
+              s: '{"date":-1}',
+              l:1
+            },
+            transformResponse: (data, headers) => {
+              return JSON.parse(data)[0];
+            }
+          },
         });
       }
     ]
@@ -120,10 +145,10 @@ angular
 
                 // https://color.adobe.com
                 let colors = [
-                  '#FAB612',
-                  '#8BBF3D',
-                  '#008651',
-                  '#06695E'
+                  '#0F6BFF',
+                  '#02E831',
+                  '#FFD90F',
+                  '#FF6300'
                 ];
 
                 _.forEach(

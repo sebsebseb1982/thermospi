@@ -36,14 +36,17 @@
     </div>
   </div>
 
-  <div class="col-lg-2">
-    <div class="panel panel-default">
+  <div class="col-lg-3">
+    <div id="status-home" class="panel panel-default">
       <div class="panel-heading">
         <i class="fa fa-info fa-fw"></i> Etat
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
-
+        <span class="temperature" id="sensor{{aTemperature.probe}}" ng-repeat="aTemperature in lastTemperaturesBySensor">
+          <i class="fa fa-thermometer-half fa-fw"></i>{{aTemperature.temperature | number : 1}}°C
+        </span>
+        <img src="/app/assets/img/maison.png" width="320" />
       </div>
     </div>
   </div>
