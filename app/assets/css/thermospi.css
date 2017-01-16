@@ -8,7 +8,7 @@
   padding-left: 2px;
   padding-top: 3px;
   padding-bottom: 3px;
-  padding-right: 5px;
+  padding-right: 6px;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.5);
   -moz-box-shadow: 0px 0px 10px 0px #656565;
@@ -20,6 +20,14 @@
   -webkit-border-radius: 10px;
   border-radius: 10px;
   position: absolute;
+}
+
+.temperature.heating {
+  background-color: rgba(255, 179, 179, 0.5);
+}
+
+.temperature div {
+  font-size: x-small;
 }
 
 .temperature#sensor1 {

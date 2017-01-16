@@ -44,7 +44,8 @@
       <!-- /.panel-heading -->
       <div class="panel-body">
         <span class="temperature" id="sensor{{aTemperature.probe}}" ng-repeat="aTemperature in lastTemperaturesBySensor">
-          <i class="fa fa-thermometer-half fa-fw"></i>{{aTemperature.temperature | number : 1}}°C
+          <i class="fa fa-thermometer-half fa-fw"></i>{{aTemperature.temperature | number : 1}}°C<br />
+          <!--<div>{{aTemperature.sensor.label}}</div>-->
         </span>
         <img src="/app/assets/img/maison.png" width="320" />
       </div>

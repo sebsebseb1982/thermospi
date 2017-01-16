@@ -35,6 +35,7 @@ angular
         Sensors.getAll().$promise.then((sensors) => {
           _.forEach(sensors, (aSensor) => {
             Temperatures2.getCurrentTemperatureBySensor({sensor: aSensor.id}).$promise.then((temperature) => {
+              //temperature.sensor = aSensor;
               $scope.lastTemperaturesBySensor.push(temperature);
             });
           });
