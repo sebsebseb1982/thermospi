@@ -118,12 +118,20 @@ angular
 
                 let series = [];
 
+                // https://color.adobe.com
+                let colors = [
+                  '#FAB612',
+                  '#8BBF3D',
+                  '#008651',
+                  '#06695E'
+                ];
+
                 _.forEach(
                   data[1],
-                  function (sensor) {
-
+                  function (sensor, index) {
                     let aTemperatureSerie = {
                       'name': sensor.label,
+                      'color': colors[index],
                       'data': _.map(
                         _.filter(
                           data[0],
