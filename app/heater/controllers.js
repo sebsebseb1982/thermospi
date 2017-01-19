@@ -17,9 +17,10 @@ angular
       'SetPoints',
       'HeaterControl',
       'Sensors',
+      'Temperatures',
       'Temperatures2',
       '_',
-      function($scope, SetPoints, HeaterControl, Sensors, Temperatures2, _) {
+      function($scope, SetPoints, HeaterControl, Sensors, Temperatures, Temperatures2, _) {
 
         let ratio = 10;
 
@@ -40,6 +41,11 @@ angular
             });
           });
         });
+
+        $scope.stats = {
+          'min' : Temperatures.getMin(),
+          'max' : Temperatures.getMax()
+        }
 
         $scope.lastSetPoint = SetPoints.getLastSetPoint();
 

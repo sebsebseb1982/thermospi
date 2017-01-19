@@ -1,5 +1,9 @@
 'use strict';
 
+let arrayToSingleValue = (data, headers) => {
+  return JSON.parse(data)[0];
+};
+
 angular
   .module('heater.services', ['ngResource'])
   .factory(
@@ -14,7 +18,25 @@ angular
             isArray: true,
             params: {
               s: '{"date":-1}'
+            }
+          },
+          getMax: {
+            method: 'GET',
+            isArray: false,
+            params: {
+              s: '{temperature:-1}',
+              l:1
             },
+            transformResponse: arrayToSingleValue
+          },
+          getMin: {
+            method: 'GET',
+            isArray: false,
+            params: {
+              s: '{temperature:1}',
+              l:1
+            },
+            transformResponse: arrayToSingleValue
           }
         });
       }
@@ -34,9 +56,7 @@ angular
               s: '{"date":-1}',
               l:1
             },
-            transformResponse: (data, headers) => {
-              return JSON.parse(data)[0];
-            }
+            transformResponse: arrayToSingleValue
           },
         });
       }
@@ -80,9 +100,7 @@ angular
               s: '{"date":-1}',
               l:1
             },
-            transformResponse: (data, headers) => {
-             return JSON.parse(data)[0];
-            }
+            transformResponse: arrayToSingleValue
           }
         });
       }

@@ -11,7 +11,7 @@
   <div class="col-lg-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <i class="fa fa-sliders fa-fw"></i> Controle
+        <i class="fa fa-sliders fa-fw"></i> Contrôle
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body" data-ng-hide="lastSetPoint.$resolved">
@@ -48,6 +48,21 @@
           <!--<div>{{aTemperature.sensor.label}}</div>-->
         </span>
         <img src="/app/assets/img/maison.png" width="320" />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div id="status-home" class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-info fa-fw"></i> Records
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <ul>
+          <li ng-show="stats.min.$resolved">Température min : {{stats.min.temperature | number : 1}}°C {{stats.min.date.$date | date:"'le' dd/MM/yyyy 'à' hh'h'mm"}}</li>
+          <li ng-show="stats.max.$resolved">Température max : {{stats.max.temperature | number : 1}}°C {{stats.max.date.$date | date:"'le' dd/MM/yyyy 'à' hh'h'mm"}}</li>
+        </ul>
       </div>
     </div>
   </div>
