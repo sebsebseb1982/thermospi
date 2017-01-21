@@ -31,18 +31,24 @@
 }
 
 .temperature#sensor1 {
-  top: 79%;
-  left: 78%;
+  top: 86%;
+  left: 77%;
+  transform:scale(1.2);
 }
 .temperature#sensor2 {
-  top: 64%;
+  top: 77%;
   left: 35%;
 }
 .temperature#sensor3 {
-  top: 41%;
+  top: 60%;
   left: 35%;
 }
 .temperature#sensor4 {
-  top: 68%;
-  left: 5%;
+  top: 65%;
+  left: 3%;
+  transform:scale(0.75);
+}
+
+.details {
+  font-size: 0.7em;
 }

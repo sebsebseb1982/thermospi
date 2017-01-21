@@ -33,19 +33,21 @@ angular
 
         $scope.lastTemperaturesBySensor = [];
 
+        $scope.sensorsWithStats = [];
+
         Sensors.getAll().$promise.then((sensors) => {
           _.forEach(sensors, (aSensor) => {
             Temperatures2.getCurrentTemperatureBySensor({sensor: aSensor.id}).$promise.then((temperature) => {
               //temperature.sensor = aSensor;
               $scope.lastTemperaturesBySensor.push(temperature);
             });
+
+            aSensor.min = Temperatures2.getMinBySensor({sensor : aSensor.id});
+            aSensor.max = Temperatures2.getMaxBySensor({sensor : aSensor.id});
+
+            $scope.sensorsWithStats.push(aSensor);
           });
         });
-
-        $scope.stats = {
-          'min' : Temperatures.getMin(),
-          'max' : Temperatures.getMax()
-        }
 
         $scope.lastSetPoint = SetPoints.getLastSetPoint();
 
@@ -54,7 +56,7 @@ angular
             value: lastSetPoint.value * ratio,
             options: {
               floor: 15 * ratio,
-              ceil: 25 * ratio,
+              ceil: 23 * ratio,
               onEnd: updateSetPoint,
               translate: (value, sliderId, label) => {
                 return value / ratio;

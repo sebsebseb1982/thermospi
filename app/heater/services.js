@@ -19,24 +19,6 @@ angular
             params: {
               s: '{"date":-1}'
             }
-          },
-          getMax: {
-            method: 'GET',
-            isArray: false,
-            params: {
-              s: '{temperature:-1}',
-              l:1
-            },
-            transformResponse: arrayToSingleValue
-          },
-          getMin: {
-            method: 'GET',
-            isArray: false,
-            params: {
-              s: '{temperature:1}',
-              l:1
-            },
-            transformResponse: arrayToSingleValue
           }
         });
       }
@@ -58,6 +40,24 @@ angular
             },
             transformResponse: arrayToSingleValue
           },
+          getMaxBySensor: {
+            method: 'GET',
+            isArray: false,
+            params: {
+              s: '{temperature:-1}',
+              l:1
+            },
+            transformResponse: arrayToSingleValue
+          },
+          getMinBySensor: {
+            method: 'GET',
+            isArray: false,
+            params: {
+              s: '{temperature:1}',
+              l:1
+            },
+            transformResponse: arrayToSingleValue
+          }
         });
       }
     ]

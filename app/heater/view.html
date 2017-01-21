@@ -8,7 +8,7 @@
 
 <div class="row">
 
-  <div class="col-lg-2">
+  <div class="col-lg-3">
     <div class="panel panel-default">
       <div class="panel-heading">
         <i class="fa fa-sliders fa-fw"></i> Contrôle
@@ -24,19 +24,7 @@
         ></rzslider>
       </div>
     </div>
-  </div>
 
-  <div class="col-lg-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <i class="fa fa-bar-chart-o fa-fw"></i> Températures des {{nLastHours}} dernières heures
-      </div>
-      <!-- /.panel-heading -->
-      <div class="panel-body" data-temperature-chart></div>
-    </div>
-  </div>
-
-  <div class="col-lg-3">
     <div id="status-home" class="panel panel-default">
       <div class="panel-heading">
         <i class="fa fa-info fa-fw"></i> Etat
@@ -52,17 +40,33 @@
     </div>
   </div>
 
-  <div class="col-lg-3">
+  <div class="col-lg-7">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i> Températures des {{nLastHours}} dernières heures
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body" data-temperature-chart></div>
+    </div>
+  </div>
+
+  <div class="col-lg-2">
     <div id="status-home" class="panel panel-default">
       <div class="panel-heading">
         <i class="fa fa-info fa-fw"></i> Records
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
-        <ul>
-          <li ng-show="stats.min.$resolved">Température min : {{stats.min.temperature | number : 1}}°C {{stats.min.date.$date | date:"'le' dd/MM/yyyy 'à' hh'h'mm"}}</li>
-          <li ng-show="stats.max.$resolved">Température max : {{stats.max.temperature | number : 1}}°C {{stats.max.date.$date | date:"'le' dd/MM/yyyy 'à' hh'h'mm"}}</li>
-        </ul>
+        <div data-ng-repeat="aSensorWithStats in sensorsWithStats" ng-show="aSensorWithStats.min.$resolved && aSensorWithStats.max.$resolved">
+          <p>{{aSensorWithStats.label}}</p><br/>
+          <span>
+            <i class="fa fa-toggle-up fa-fw"></i>{{aSensorWithStats.max.temperature | number : 1}}°C <span class="details">({{aSensorWithStats.max.date.$date | date:"'le' dd/MM/yyyy 'à' hh'h'mm"}})</span>
+          </span><br/>
+          <span>
+            <i class="fa fa-toggle-down fa-fw"></i>{{aSensorWithStats.min.temperature | number : 1}}°C <span class="details">({{aSensorWithStats.min.date.$date | date:"'le' dd/MM/yyyy 'à' hh'h'mm"}})</span>
+          </span>
+          <hr ng-if="!$last" />
+        </div>
       </div>
     </div>
   </div>
