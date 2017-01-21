@@ -18,6 +18,7 @@ angular
     'heater',
     'outlets',
     'lamps',
+    'wifi',
     'settings',
     'lodash',
     'rzModule',
