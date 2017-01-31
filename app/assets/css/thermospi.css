@@ -53,10 +53,14 @@
   font-size: 0.7em;
 }
 
+.fa-wifi {
+  filter:drop-shadow(8px 8px 10px);
+}
+
 .fa.grey {
   color: grey;
 }
 
 .fa.green {
-  color: green;
+  color: lime;
 }
