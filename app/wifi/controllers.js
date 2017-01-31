@@ -16,7 +16,9 @@ angular
       '$scope',
       'Wifi',
       function ($scope, Wifi) {
-        $scope.status = Wifi.getStatus();
+        Wifi.getStatus().$promise.then((status) => {
+          $scope.status = status;
+        });
       }
     ]
   );
