@@ -6,10 +6,14 @@ angular
     'Wifi',
     [
       '$resource',
-      function ($resource) {
+      '$cookies',
+      function ($resource, $cookies) {
         return $resource('/home/wifi', {}, {
           getStatus: {
-            method: 'GET'
+            method: 'GET',
+            headers: {
+              'token': $cookies.get('apikey')
+            }
           }
         });
       }
