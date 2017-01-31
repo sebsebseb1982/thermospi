@@ -20,6 +20,13 @@ angular
           console.log('status', status);
           $scope.status = status.status;
         });
+
+        $scope.toggleStatus = () => {
+          Wifi.setStatus(
+            {state: !$scope.status}
+          );
+          $scope.status = !$scope.status;
+        };
       }
     ]
   );

@@ -52,3 +52,11 @@
 .details {
   font-size: 0.7em;
 }
+
+.fa.grey {
+  color: grey;
+}
+
+.fa.green {
+  color: green;
+}

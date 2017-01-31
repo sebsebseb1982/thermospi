@@ -14,6 +14,12 @@ angular
             headers: {
               'token': $cookies.get('apikey')
             }
+          },
+          setStatus: {
+            method: 'POST',
+            headers: {
+              'token': $cookies.get('apikey')
+            }
           }
         });
       }

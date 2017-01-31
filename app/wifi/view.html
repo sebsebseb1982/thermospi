@@ -8,7 +8,28 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <span>Coucou</span>
-    <span>{{status}}</span>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-wifi fa-fw"></i>
+        Etat
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <form role="form">
+              <div class="form-group">
+                <i
+                  class="fa fa-wifi fa-5x"
+                  aria-hidden="true"
+                  data-ng-class="{false:'grey', true:'green'}[status]"
+                  data-ng-click="toggleStatus()"
+                ></i>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
