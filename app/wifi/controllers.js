@@ -14,8 +14,9 @@ angular
     'WifiController',
     [
       '$scope',
-      function ($scope) {
-
+      'Wifi',
+      function ($scope, Wifi) {
+        $scope.status = Wifi.getStatus();
       }
     ]
   );
