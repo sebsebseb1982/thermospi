@@ -17,7 +17,7 @@ angular
       'Wifi',
       function ($scope, Wifi) {
         Wifi.getStatus().$promise.then((status) => {
-          console.log(status);
+          console.log('status', status);
           $scope.status = status;
         });
       }
