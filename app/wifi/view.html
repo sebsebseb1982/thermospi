@@ -16,14 +16,19 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-lg-12">
+
+            <button type="button" class="btn btn-outline btn-primary btn-lg" data-ng-click="toggleStatus()">
+              <i
+                class="fa fa-wifi fa-fw"
+                aria-hidden="true"
+                data-ng-class="{false:'grey', true:'green'}[status]"
+
+              ></i>{{status ? 'OFF' : 'ON'}}
+            </button>
+
             <form role="form">
               <div class="form-group">
-                <i
-                  class="fa fa-wifi fa-5x"
-                  aria-hidden="true"
-                  data-ng-class="{false:'grey', true:'green'}[status]"
-                  data-ng-click="toggleStatus()"
-                ></i>
+
               </div>
             </form>
           </div>
